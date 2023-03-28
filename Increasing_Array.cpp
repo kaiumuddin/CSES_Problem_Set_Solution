@@ -80,27 +80,26 @@ void pvvi(vector<vector<int>>& all) // print 2d arr
 }
 
 void fn() {
-    string s;
-    cin >> s;
-
-    int cur = 1, res = 1;
-
-    for (int i = 1; i < s.size(); i++) {
-        if (s[i] == s[i - 1]) {
-            cur++;
-        }
-        else {
-            cur = 1;
-        }
-
-        res = max(res, cur);
+    ll n, ans = 0;
+    cin >> n;
+    ll a[n] = { 0 };
+    for (ll i = 0; i < n; i++) {
+        cin >> a[i];
     }
-    cout << res << endl;
+
+    for (ll i = 1; i < n;i++) {
+        if (a[i] < a[i - 1]) {
+            ans += a[i - 1] - a[i];
+            a[i] = a[i - 1];
+        }
+    }
+
+    cout << ans << endl;
 }
 
 int main()
 {
-    // init_code();
+    init_code();
 
     // int t; cin >> t;
     // for (int i = 1; i <= t; i++) {
